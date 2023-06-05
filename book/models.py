@@ -21,4 +21,4 @@ class Booked(models.Model):
     room       = models.ForeignKey(Room, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return f"{self.start_date}  {self.end_date} - {self.room}"
+        return f"{self.start_time}  {self.end_time} - {self.room}"
