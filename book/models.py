@@ -16,8 +16,8 @@ class Room(models.Model):
         return self.name
     
 class Booked(models.Model):
-    start_date = models.DateTimeField()
-    end_date   = models.DateTimeField()
+    start_time = models.DateTimeField()
+    end_time   = models.DateTimeField()
     room       = models.ForeignKey(Room, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
