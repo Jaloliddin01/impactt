@@ -10,7 +10,15 @@ class Room(models.Model):
     name      = models.CharField(max_length=255)
     tayp      = models.CharField(max_length=10, choices=TYPES)
     capacity  = models.PositiveSmallIntegerField()
-    is_booked = models.BooleanField(default=False)
+    # is_booked = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return self.name
+    
+class Booked(models.Model):
+    start_date = models.DateTimeField()
+    end_date   = models.DateTimeField()
+    room       = models.ForeignKey(Room, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return f"{self.start_date}  {self.end_date} - {self.room}"
