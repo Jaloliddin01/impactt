@@ -18,7 +18,7 @@ class Room(models.Model):
 class Booked(models.Model):
     start_time = models.DateTimeField()
     end_time   = models.DateTimeField()
-    room       = models.ForeignKey(Room, on_delete=models.CASCADE)
+    room       = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='ordered_times')
 
     def __str__(self) -> str:
         return f"{self.start_time}  {self.end_time} - {self.room}"

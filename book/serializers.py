@@ -7,6 +7,8 @@ class RoomSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'tayp', 'capacity']
 
 class BookSerializer(serializers.ModelSerializer):
+    room = RoomSerializer()
+
     class Meta:
         model = Booked
         fields = ['id', 'start_time', 'end_time', 'room']
